@@ -6,65 +6,88 @@
 
 body {
   font-family: Roboto, sans-serif;
-}
-
-:root {
-  --blue-color: #00acdc;
+  line-height: 12px;
 }
 
 header {
-  background-color: #fff;
-  justify-content: space-between;
-  align-items: center;
+  display: flex;
   width: 100%;
-  padding-left: 50px;
-  padding-right: 50px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
   display: flex;
-}
-
-.logo-link img {
-  width: 40px;
-  height: 40px;
-  display: block;
-}
-
-.nav-list {
-  list-style: none;
-  display: flex;
-}
-
-.nav-list li:not(:last-child) {
-  margin-right: 20px;
-}
-
-.nav-list a {
-  color: #000;
-  text-transform: uppercase;
-  text-align: center;
   height: 60px;
+  margin-left: 50px;
+  align-items: center;
+}
+
+.header__logo img {
+  height: 40px;
+  margin: 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding-left: 0;
+}
+
+.nav__list li {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  margin: 0 10px;
+}
+
+.nav__list li:first-child {
+  margin-top: 0;
+  margin-left: 0;
+}
+
+.nav__list li:last-child {
+  margin-right: 0;
+}
+
+.nav__link {
+  display: flex;
   font-size: 12px;
   font-weight: 500;
-  line-height: 60px;
+  font-family: Roboto, sans-serif;
   text-decoration: none;
-  display: block;
+  height: 100%;
+  align-items: center;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.nav__link:hover,
+.active_hover {
+  color: #00acdc;
+}
+
+.nav__link.is-active {
+  color: #00acdc;
   position: relative;
 }
 
-.nav-list a.is-active {
-  color: var(--blue-color);
-}
-
-.nav-list a.is-active::after {
+.nav__link.is-active::after {
+  display: block;
   content: '';
-  background-color: var(--blue-color);
+  background-color: #00acdc;
+  bottom: 0;
+  left: 50%;
   border-radius: 8px;
-  width: 100%;
+  width: 3rem;
   height: 4px;
   position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-.nav-list a[data-qa='hover']:hover {
-  color: var(--blue-color);
+  transform: translateX(-50%);
 }
